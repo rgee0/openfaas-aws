@@ -1,0 +1,7 @@
+---
+ - name: 'Bring in OpenFaas'
+   raw: docker swarm init --advertise-addr eth0 && \
+        git clone https://github.com/openfaas/faas && \
+        cd faas && \
+        git checkout 0.6.7 && \
+       ./deploy_stack.sh

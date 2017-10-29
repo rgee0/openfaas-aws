@@ -1,0 +1,23 @@
+---
+ - hosts: localhost
+   connection: local
+   gather_facts: false
+   user: ansible
+   pre_tasks:
+    - include_vars: ec2_vars/{{type}}.yml
+   roles:
+    - provision-OpenFaaS-ec2 
+
+ - name: Configure the new instance
+   hosts: OpenFaaS
+   gather_facts: false
+   remote_user: ubuntu
+   pre_tasks:
+    - name: 'install python2'
+      raw: sudo apt-get -y install python-simplejson
+   roles:
+    - git
+    - docker
+    - openfaas
+   become: true
+   

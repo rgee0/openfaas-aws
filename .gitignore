@@ -1,0 +1,5 @@
+provision-ec2
+ec2.ini
+ec2.py
+*.sh
+.vscode

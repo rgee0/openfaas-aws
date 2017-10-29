@@ -1,0 +1,7 @@
+---
+- name: install/update git package
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items: 
+    - git

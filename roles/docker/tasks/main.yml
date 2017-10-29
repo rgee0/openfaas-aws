@@ -1,0 +1,6 @@
+---
+- name: 'install Docker'
+  raw: curl -sSL get.docker.com | sh
+
+- name: 'add ubuntu user to docker group'
+  raw: sudo usermod -aG docker ubuntu
